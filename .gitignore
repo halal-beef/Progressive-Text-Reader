@@ -1,0 +1,4 @@
+# Ignore VSCode files, Binaries and Obj, building stuff :cold_face:
+obj
+bin
+.vscode
