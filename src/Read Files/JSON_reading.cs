@@ -8,8 +8,9 @@ namespace Dottik.PTR.Update
 {
     public class JSONValues
     {
-        public string version { get; set; }
-        public string downloadLink { get; set; }
+        public int VersionCode { get; set; }
+        public string Version { get; set; }
+        public string DownloadLink { get; set; }
     }
     public class JSONReading
     {
@@ -20,10 +21,9 @@ namespace Dottik.PTR.Update
             //
             JSONValues jsonValues = JsonSerializer.Deserialize<JSONValues>(text);
 
-            Data.latestVersion = jsonValues.version;
-            Data.downloadLink = jsonValues.downloadLink;
-
-            Console.Write("{0}, {1}", jsonValues.version, jsonValues.downloadLink);
+            Data.latestVersionCode = jsonValues.VersionCode;
+            Data.latestVersion = jsonValues.Version;
+            Data.downloadLink = jsonValues.DownloadLink;
         }
     }
 }

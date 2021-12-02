@@ -11,13 +11,9 @@ namespace Dottik.PTR
 
             File.Delete(Data.executionPath + fileName);
             //Create a WebClient
-            WebClient client = new WebClient
-            {
-                //Make it download a file from repository for updates
-                Encoding = System.Text.Encoding.UTF8
-            };
+            WebClient client = new WebClient();
             client.DownloadFile(URI, fileName);
-            Console.Write(@"Downloaded '{2}' Saving to {0}{1}\{2}...", Data.executionPath, targetDirectory,  fileName);
+            Console.WriteLine(@"Downloaded '{2}' Saving to {0}{1}\{2}...", Data.executionPath, targetDirectory,  fileName);
 
             // This will copy the downloaded file to a targetDirectory specified when calling this method
             Directory.CreateDirectory(Data.executionPath + targetDirectory);

@@ -15,7 +15,7 @@ namespace Dottik.PTR
 
             foreach (var argument in args)
             {
-                if(argument.Contains("--latency")) {
+                if (argument.Contains("--latency")) {
 
                     string[] msec = argument.Split('=');
                     wordDelay = msec[1];
@@ -54,8 +54,9 @@ namespace Dottik.PTR
                     Help.PrintHelp();
                     break;
                 case "checkUpdates":
-                    RequestFile.GetFile("https://raw.githubusercontent.com/usrDottik/Progressive-Text-Reader/master/Updater.json", "Example", "Update.json");
-                    JSONReading.ReadJSON("Example", "Update.json");
+                    RequestFile.GetFile("https://raw.githubusercontent.com/usrDottik/Progressive-Text-Reader/master/Updater.json", "Do Not Delete", "Update.json");
+                    JSONReading.ReadJSON("Do Not Delete", "Update.json");
+                    UpdateAgent.CheckUpdate();
                     break;
                 default:
                     Write("///// If you need to access help command use '--help' ///// \n \n");
