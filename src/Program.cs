@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Diagnostics;
-using System.IO;
+using Dottik.PTR.Update;
 using static System.Console;
-using static System.String;
 using static Dottik.PTR.Data;
 using static Dottik.PTR.FileRead;
 
@@ -35,6 +33,8 @@ namespace Dottik.PTR
                     programMode = "customText";
                 } else if (argument.Contains("--create-text-file")) {
                     programMode = "createFile";
+                } else if (argument.Contains("--check-update")) {
+                    programMode = "checkUpdates";
                 }
             }
 
@@ -52,6 +52,10 @@ namespace Dottik.PTR
                     break;
                 case "help":
                     Help.PrintHelp();
+                    break;
+                case "checkUpdates":
+                    RequestFile.GetFile("https://raw.githubusercontent.com/usrDottik/Progressive-Text-Reader/master/Updater.json", "Example", "Update.json");
+                    JSONReading.ReadJSON("Example", "Update.json");
                     break;
                 default:
                     Write("///// If you need to access help command use '--help' ///// \n \n");

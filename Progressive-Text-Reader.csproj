@@ -5,5 +5,4 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>Progressive_Text_Reader</RootNamespace>
   </PropertyGroup>
-
 </Project>

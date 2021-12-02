@@ -1,11 +1,9 @@
 using System;
-using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using Dottik.PTR;
 using static System.Console;
 using static System.IO.File;
-using static System.String;
 using static Dottik.PTR.Data;
 
 namespace Dottik.PTR
