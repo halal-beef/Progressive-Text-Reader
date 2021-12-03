@@ -37,7 +37,8 @@ namespace Dottik.PTR
             ForegroundColor = ConsoleColor.Green;
             Write("   --help                       |  Display this message\n");
             ForegroundColor = ConsoleColor.Cyan;
-            WriteLine("/////////////////////////////////////");
+            WriteLine("////////");
+            Write("/////////////////////////////////////");
             ForegroundColor = ConsoleColor.Gray;
         }
     }

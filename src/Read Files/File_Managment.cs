@@ -12,10 +12,7 @@ namespace Dottik.PTR
     {
         private static char[] chars;
         private static int i = 0;
-        static public void CreateFile() {
-            FileStream stream = File.OpenWrite(executionPath + fileName);
-            stream.Close();
-        }
+        
         //Read 'mode', prompts us if we read character by character or word by word
         static public void ReadFile(int latency) {
 
@@ -28,10 +25,10 @@ namespace Dottik.PTR
             try {
                 lines = ReadAllLines(executionPath + fileName);
             } catch {
-                Write("\n\n\n --There was no file to read from! Creating one... \n ");
-                CreateFile();
-                Write("--Resuming Program execution! \n \n");
-                ReadFile(latency);
+                ForegroundColor = ConsoleColor.Red;
+                WriteLine ("\n\n--There was no file to read from! \n Terminating Program! \n Please, execute the program with the argument `--create-text-file` or create a file with the name {0}", fileName);
+                ForegroundColor = ConsoleColor.Gray;
+                Environment.Exit(0);
             }
 
             WriteLine("Done! \nPrinting... \n////////\n////////\n////////\n");
@@ -54,12 +51,6 @@ namespace Dottik.PTR
                 }
                 Write("\n");
             }
-            if(i <= 0) {
-                ForegroundColor = ConsoleColor.Red;
-                Write("Was the file empty?");
-                ForegroundColor = ConsoleColor.Gray;
-            }
-            
         }
         static public void ReadTextNoArray(string line, int latency) {
 

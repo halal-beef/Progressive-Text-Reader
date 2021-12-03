@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Dottik.PTR.Update;
 using static System.Console;
 using static Dottik.PTR.Data;
@@ -32,7 +33,9 @@ namespace Dottik.PTR
                 } else if (argument.Contains("--custom")) {
                     programMode = "customText";
                 } else if (argument.Contains("--create-text-file")) {
-                    programMode = "createFile";
+                    WriteLine("Creating text file...");
+                    File.CreateText(Data.fileName);
+                    WriteLine("Done!");
                 } else if (argument.Contains("--check-update")) {
                     programMode = "checkUpdates";
                 }
@@ -44,11 +47,6 @@ namespace Dottik.PTR
                     WriteLine("Please, Write the your custom text: ");
                     customText = ReadLine();
                     ReadTextNoArray(customText, delay);
-                    break;
-                case "createFile":
-                    WriteLine("Creating text file...");
-                    
-                    WriteLine("Done!");
                     break;
                 case "help":
                     Help.PrintHelp();
