@@ -56,7 +56,7 @@ namespace Dottik.PTR
                 case "checkUpdates":
                     RequestFile.GetFile("https://raw.githubusercontent.com/usrDottik/Progressive-Text-Reader/master/Updater.json", "Do Not Delete", "Update.json");
                     JSONReading.ReadJSON("Do Not Delete", "Update.json");
-                    UpdateAgent.CheckUpdate();
+                    UpdateAgent.CheckUpdate(Data.downloadLink);
                     break;
                 default:
                     Write("///// If you need to access help command use '--help' ///// \n \n");

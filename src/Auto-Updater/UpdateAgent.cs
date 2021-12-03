@@ -8,7 +8,7 @@ namespace Dottik.PTR
 {
     public class UpdateAgent
     {
-        public static void CheckUpdate() {
+        public static void CheckUpdate(string dl) {
 
             string fileName = "newVersion.zip", temporalDir = "temp";
             int latest = Data.latestVersionCode, current = Data.versionCode;
@@ -16,11 +16,12 @@ namespace Dottik.PTR
 
             if (current == latest) {
                 Console.WriteLine("No Updates Detected");
-            } else if (current > latest) {
+            } else if (current < latest) {
                 Console.WriteLine("New Version Detected!");
 
                 //We Download the latest application zip
-                client.DownloadFile(Data.downloadLink, fileName);
+                // BROKEN, NEEDS FIX
+                client.DownloadFile(dl, fileName);
 
                 //We create a temporal directory to store the zip file and then copy it to there afterwards
                 Directory.CreateDirectory(Data.executionPath + temporalDir);

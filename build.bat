@@ -1,4 +1,4 @@
-dotnet build -c release 
+dotnet publish 
 mkdir build 
-move bin\release\netcoreapp3.1\* build\
+move bin\Debug\netcoreapp3.1\win-x64\publish\* build\
 cd build

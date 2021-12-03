@@ -3,6 +3,15 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>Progressive_Text_Reader</RootNamespace>
+    <RootNamespace>Dottik.PTR</RootNamespace>
+    <PublishSingleFile>true</PublishSingleFile>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <!--false = framework-dependant | true = self-contained, MUST BE TRUE IF YOU ARE COMPILING AOT!-->
+    <SelfContained>true</SelfContained>
+
+    <!--false = JIT compilation | true = AOT Compilation-->
+    <PublishReadyToRun>true</PublishReadyToRun>
+    <DebugType>embedded</DebugType>
   </PropertyGroup>
 </Project>

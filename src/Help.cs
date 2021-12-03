@@ -30,9 +30,13 @@ namespace Dottik.PTR
             WriteLine("////////");
             Write("////////");
             ForegroundColor = ConsoleColor.Green;
-            Write("   --help                       |  Display this message\n");
+            Write("   --check-update               |  Checks for updates of this program and downloads them into a folder named 'New Version'\n");
             ForegroundColor = ConsoleColor.Cyan;
             WriteLine("////////");
+            Write("////////");
+            ForegroundColor = ConsoleColor.Green;
+            Write("   --help                       |  Display this message\n");
+            ForegroundColor = ConsoleColor.Cyan;
             WriteLine("/////////////////////////////////////");
             ForegroundColor = ConsoleColor.Gray;
         }
