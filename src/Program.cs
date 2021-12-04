@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using Dottik.PTR.Update;
 using static System.Console;
@@ -41,6 +42,9 @@ namespace Dottik.PTR
                 }
             }
 
+            // STILL IN WIP!
+            UpdateAgent.CheckLocalUpdate();
+
             switch (programMode)
             {
                 case "customText":
@@ -55,6 +59,11 @@ namespace Dottik.PTR
                     RequestFile.GetFile("https://raw.githubusercontent.com/usrDottik/Progressive-Text-Reader/master/Updater.json", "Do Not Delete", "Update.json");
                     JSONReading.ReadJSON("Do Not Delete", "Update.json");
                     UpdateAgent.CheckUpdate(Data.downloadLink);
+                    break;
+                case "applyUpdate":
+                    //Process updater = new Process();
+                    //updater.StartInfo.FileName = "updater.exe";
+
                     break;
                 default:
                     Write("///// If you need to access help command use '--help' ///// \n \n");

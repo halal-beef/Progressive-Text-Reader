@@ -30,8 +30,20 @@ namespace Dottik.PTR
 
                 File.Delete(Data.executionPath + temporalDir + @"\" + fileName);
                 Directory.Delete(Data.executionPath + temporalDir);
+                File.Create(Data.executionPath + "UpdatePerformed.dat");
 
             }
         }
+        // WIP
+        public static string CheckLocalUpdate()
+        {
+
+            if (File.Exists(Data.executionPath + "UpdatePerformed.dat")) {
+                Data.programMode = "applyUpdate";
+                return "Update Mode Applied";
+            } else {
+                return "Normal Execution";
+            }
+    }
     }
 }

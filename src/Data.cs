@@ -12,6 +12,6 @@ namespace Dottik.PTR
         public static readonly string applicationVersion = "1.0";
         public static readonly string executionPath = Environment.CurrentDirectory + @"\";
         public static readonly string fileName = "read-this.txt";
-        public static readonly string author = "Dottik";
+        public static readonly string author = "Dottik"; 
     }
 }
