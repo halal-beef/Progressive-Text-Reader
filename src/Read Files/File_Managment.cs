@@ -1,7 +1,5 @@
 using System;
-using System.IO;
 using System.Threading;
-using Dottik.PTR;
 using static System.Console;
 using static System.IO.File;
 using static Dottik.PTR.Data;
@@ -37,7 +35,7 @@ namespace Dottik.PTR
 
             Write("\n////////\n////////\n////////\n Written {0} characters!", i);
         }
-        static public void ReadText(string[] lines, int latency) {
+        static protected void ReadText(string[] lines, int latency) {
 
             //Iterate through the lines of text, translate into a char array the current line, print it, sum the chars, leave a space with a \n and then go to next and repeat
             foreach (var letter in lines)
@@ -46,6 +44,8 @@ namespace Dottik.PTR
                 foreach (var item in chars)
                 {
                     Write(item);
+                    //I'm too stupid to find another convincing solution more than stopping a whole thread?
+                    // YES.
                     Thread.Sleep(latency);
                     i++;
                 }

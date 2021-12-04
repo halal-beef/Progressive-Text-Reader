@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 using Dottik.PTR.Update;
 using static System.Console;
@@ -12,15 +11,14 @@ namespace Dottik.PTR
     {
         static void Main(string[] args)
         {
-            string wordDelay = "50", customText = "";
+            string customText;
             int delay = 50;
-
             foreach (var argument in args)
             {
                 if (argument.Contains("--latency")) {
 
                     string[] msec = argument.Split('=');
-                    wordDelay = msec[1];
+                    string wordDelay = msec[1];
                     if(!int.TryParse(wordDelay, out delay)) {
                         Clear();
                         ForegroundColor = ConsoleColor.Red;

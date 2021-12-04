@@ -14,9 +14,8 @@ namespace Dottik.PTR.Update
     {
         public static void ReadJSON(string fileFolder, string jsonFileName)
         {
-            string text = File.ReadAllText(Data.executionPath + fileFolder + @"\" + jsonFileName), b = "";
+            string text = File.ReadAllText(Data.executionPath + fileFolder + @"\" + jsonFileName), b;
             JSONValues jsonValues = JsonSerializer.Deserialize<JSONValues>(text);
-
             b = jsonValues.VersionCode.ToString();
             if(int.TryParse(b, out int t)) {
                 Data.latestVersionCode = t;

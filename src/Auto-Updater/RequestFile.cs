@@ -1,8 +1,6 @@
 using System;
 using System.IO;
 using System.Net;
-using Dottik.PTR;
-
 namespace Dottik.PTR
 {
     public class RequestFile
