@@ -16,7 +16,7 @@ namespace Dottik.PTR
             int delay = 50;
             foreach (var argument in splittedString)
             {
-                switch(args)
+                switch(argument)
                 {
                     case "latency":
                         string[] msec = argument.Split('=');
