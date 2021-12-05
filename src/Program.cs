@@ -11,13 +11,15 @@ namespace Dottik.PTR
     {
         static void Main(string[] args)
         {
+            string[] splittedString = String.Join('',args).Split("--");
             string customText;
             int delay = 50;
-            foreach (var argument in args)
+            foreach (var argument in splittedString)
             {
-                if (argument.Contains("--latency")) {
-
-                    string[] msec = argument.Split('=');
+                switch(args)
+                {
+                    case "latency":
+                        string[] msec = argument.Split('=');
                     string wordDelay = msec[1];
                     if(!int.TryParse(wordDelay, out delay)) {
                         Clear();
@@ -25,19 +27,22 @@ namespace Dottik.PTR
                         Write("Invalid Latency value! Try again.");
                         ForegroundColor = ConsoleColor.Gray;
                         Environment.Exit(69);
-                    }
-
-                } else if (argument.Contains("--help")) {
-                    programMode = "help";
-                } else if (argument.Contains("--custom")) {
-                    programMode = "customText";
-                } else if (argument.Contains("--create-text-file")) {
-                    WriteLine("Creating text file...");
-                    File.CreateText(Data.fileName);
-                    WriteLine("Done!");
-                } else if (argument.Contains("--check-update")) {
-                    programMode = "checkUpdates";
-                }
+                        break;
+                    case "help":
+                        programMode = "help";
+                        break;
+                    case "custom":
+                        programMode = "customText";
+                        break;
+                    case "create-text-file":
+                        WriteLine("Creating text file...");
+                        File.CreateText(Data.fileName);
+                        WriteLine("Done!");
+                        break;
+                     case "check-update":
+                        programMode = "checkUpdates";
+                        break;
+                }               
             }
 
             // STILL IN WIP!
