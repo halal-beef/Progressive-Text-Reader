@@ -27,6 +27,7 @@ namespace Dottik.PTR
                         Write("Invalid Latency value! Try again.");
                         ForegroundColor = ConsoleColor.Gray;
                         Environment.Exit(69);
+                    }
                         break;
                     case "help":
                         programMode = "help";
