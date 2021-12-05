@@ -18,7 +18,7 @@ namespace Dottik.PTR
             {
                 switch(argument)
                 {
-                    when argument.Contains("latency=")
+                    case string a when a.Contains("latency="):
                         string[] msec = argument.Split('=');
                     string wordDelay = msec[1];
                     if(!int.TryParse(wordDelay, out delay)) {
