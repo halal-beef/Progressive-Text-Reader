@@ -13,10 +13,11 @@ namespace Dottik.PTR
         {
             string customText;
             int delay = 50;
+            //Clear all past console to ive a 'clear' view
+            Clear();
             foreach (var argument in args)
             {
                 if (argument.Contains("--latency")) {
-
                     string[] msec = argument.Split('=');
                     string wordDelay = msec[1];
                     if(!int.TryParse(wordDelay, out delay)) {
@@ -26,15 +27,15 @@ namespace Dottik.PTR
                         ForegroundColor = ConsoleColor.Gray;
                         Environment.Exit(69);
                     }
-
                 } else if (argument.Contains("--help")) {
                     programMode = "help";
                 } else if (argument.Contains("--custom")) {
                     programMode = "customText";
                 } else if (argument.Contains("--create-text-file")) {
                     WriteLine("Creating text file...");
-                    File.CreateText(Data.fileName);
+                    File.CreateText(fileName);
                     WriteLine("Done!");
+                    Environment.Exit(0);
                 } else if (argument.Contains("--check-update")) {
                     programMode = "checkUpdates";
                 }
@@ -56,11 +57,9 @@ namespace Dottik.PTR
                 case "checkUpdates":
                     RequestFile.GetFile("https://raw.githubusercontent.com/usrDottik/Progressive-Text-Reader/master/Updater.json", "Do Not Delete", "Update.json");
                     JSONReading.ReadJSON("Do Not Delete", "Update.json");
-                    UpdateAgent.CheckUpdate(Data.downloadLink);
+                    UpdateAgent.CheckUpdate(downloadLink);
                     break;
                 case "applyUpdate":
-                    //Process updater = new Process();
-                    //updater.StartInfo.FileName = "updater.exe";
 
                     break;
                 default:

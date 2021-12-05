@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.IO.Compression;
 using System.Net;
+using static Dottik.PTR.Data;
 
 
 namespace Dottik.PTR
@@ -11,7 +12,7 @@ namespace Dottik.PTR
         public static void CheckUpdate(string dl) {
 
             string fileName = "newVersion.zip", temporalDir = "temp";
-            int latest = Data.latestVersionCode, current = Data.versionCode;
+            int latest = latestVersionCode, current = versionCode;
             WebClient client = new WebClient();
 
             if (current == latest) {
@@ -24,26 +25,24 @@ namespace Dottik.PTR
                 client.DownloadFile(dl, fileName);
 
                 //We create a temporal directory to store the zip file and then copy it to there afterwards
-                Directory.CreateDirectory(Data.executionPath + temporalDir);
-                File.Copy(Data.executionPath + fileName, Data.executionPath + temporalDir + @"\" + fileName);
-                ZipFile.ExtractToDirectory(Data.executionPath + temporalDir + @"\" + fileName, Data.executionPath + "New Version");
+                Directory.CreateDirectory(executionPath + temporalDir);
+                File.Copy(executionPath + fileName, executionPath + temporalDir + @"\" + fileName);
+                ZipFile.ExtractToDirectory(executionPath + temporalDir + @"\" + fileName, executionPath + "New Version");
 
-                File.Delete(Data.executionPath + temporalDir + @"\" + fileName);
-                Directory.Delete(Data.executionPath + temporalDir);
-                File.Create(Data.executionPath + "UpdatePerformed.dat");
+                File.Delete(executionPath + temporalDir + @"\" + fileName);
+                Directory.Delete(executionPath + temporalDir);
+                File.Create(executionPath + "UpdatePerformed.dat");
 
             }
         }
         // WIP
-        public static string CheckLocalUpdate()
+        public static void CheckLocalUpdate()
         {
 
-            if (File.Exists(Data.executionPath + "UpdatePerformed.dat")) {
-                Data.programMode = "applyUpdate";
-                return "Update Mode Applied";
+            if (File.Exists(executionPath + "UpdatePerformed.dat")) {
+                programMode = "applyUpdate";
             } else {
-                return "Normal Execution";
             }
-    }
+        }
     }
 }
