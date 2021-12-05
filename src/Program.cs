@@ -11,7 +11,7 @@ namespace Dottik.PTR
     {
         static void Main(string[] args)
         {
-            string[] splittedString = String.Join('',args).Split("--");
+            string[] splittedString = String.Join(' ',args).Split("--");
             string customText;
             int delay = 50;
             foreach (var argument in splittedString)
