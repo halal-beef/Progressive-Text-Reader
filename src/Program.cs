@@ -18,7 +18,7 @@ namespace Dottik.PTR
             {
                 switch(argument)
                 {
-                    when argument.Contains("latency=")
+                    case string a when a.Contains("latency="):
                         string[] msec = argument.Split('=');
                     string wordDelay = msec[1];
                     if(!int.TryParse(wordDelay, out delay)) {
@@ -27,6 +27,7 @@ namespace Dottik.PTR
                         Write("Invalid Latency value! Try again.");
                         ForegroundColor = ConsoleColor.Gray;
                         Environment.Exit(69);
+                        }
                         break;
                     case "help":
                         programMode = "help";
@@ -42,7 +43,8 @@ namespace Dottik.PTR
                      case "check-update":
                         programMode = "checkUpdates";
                         break;
-                }               
+                }    
+
             }
 
             // STILL IN WIP!
