@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using Dottik.PTR.Update;
 using static System.Console;
@@ -68,6 +68,8 @@ namespace Dottik.PTR
                 case "applyUpdate":
                     //Process updater = new Process();
                     //updater.StartInfo.FileName = "updater.exe";
+                    //Environment.Exit(0);
+                    //you need to close or else updater will not work cause itll try to overwrite the file while open
 
                     break;
                 default:
